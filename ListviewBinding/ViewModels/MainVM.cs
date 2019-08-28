@@ -20,12 +20,12 @@ namespace ListviewBinding.ViewModels
             foreach(var item in items)
             {
                 var itemVM = new ItemVM(item);
-                itemVM.ButtonCommand = new Command<ItemVM>(async (obj) => await ButtonAction(obj));
+                itemVM.ButtonCommand = new Command<ItemVM>(async (obj) => await ButtonActionAsync(obj));
                 Items.Add(itemVM);
             }
         }
 
-        private async Task ButtonAction(ItemVM obj)
+        private async Task ButtonActionAsync(ItemVM obj)
         {
             await Application.Current.MainPage.DisplayAlert("Button Click", "item " + obj.TitleItem+" was clicked","ok");
         }
